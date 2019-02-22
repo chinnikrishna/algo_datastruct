@@ -15,13 +15,17 @@ List::List(){
 //List length
 int List::listLen(){
     int len=0;
-    curr=head;
-    while(curr->next != NULL){
-        len++;
-        curr=curr->next;
-    }
-    len++;
-    return len;
+	if(head !=NULL){
+		curr=head;
+		while(curr->next != NULL){
+			len++;
+			curr=curr->next;
+		}
+		len++;
+		return len;
+	}
+	else
+		return len;
 }
 
 
@@ -121,7 +125,7 @@ void List::delNode(int pos){
 }
 
 //Returns the pointer of a node
-nodePtr List::getNode(int pos){
+/*nodePtr List::getNode(int pos){
     if(pos == 0)
         return head;
     else if(pos == -1){
@@ -145,4 +149,4 @@ nodePtr List::getNode(int pos){
         }
     }
     
-}
+}*/

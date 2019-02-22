@@ -1,5 +1,6 @@
 #include <iostream>
 #include "list.h"
+#include "stack.h"
 
 using namespace std;
 
@@ -14,6 +15,13 @@ int main(){
     A.printList();
     A.delNode(1);
     A.printList();
-    
-    
+	
+	Stack S(20);
+	S.Push(24);
+	S.Push(32);
+	S.Push(67);
+	S.Pop();
+	S.Pop();
+	S.Pop();
+	S.Pop();    
 }

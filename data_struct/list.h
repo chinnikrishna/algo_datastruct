@@ -15,7 +15,7 @@ public:
     void delNode(int pos=0);
     void printList();
     int listLen();
-    nodePtr getData(int pos=0);
+    //nodePtr getData(int pos=0);
 };
     
 #endif
