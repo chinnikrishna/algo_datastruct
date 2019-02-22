@@ -15,7 +15,7 @@ List::List(){
 //List length
 int List::listLen(){
     int len=0;
-	if(head !=NULL){
+    if(head !=NULL){
 		curr=head;
 		while(curr->next != NULL){
 			len++;
@@ -28,6 +28,24 @@ int List::listLen(){
 		return len;
 }
 
+
+
+//Reverse List
+void List::revList(){
+    if(head != NULL){
+        nodePtr nxt, prev = NULL;
+        curr=head;
+        while(curr != NULL){
+            nxt = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = nxt;
+        }
+        head=prev;
+    }
+    else
+        cout<<"Empty List"<<endl;
+}
 
 //Print Data
 void List::printList(){
@@ -44,7 +62,7 @@ void List::printList(){
 }
 
 
-//Insert Data
+//Insert Node
 void List::insNode(int newData, int pos){
     nodePtr n = new Node();
     n->data = newData;
@@ -90,6 +108,7 @@ void List::insNode(int newData, int pos){
     }   
 }
 
+//Delete Node
 void List::delNode(int pos){
     //Remove the first node
     if(pos == 0){
