@@ -40,4 +40,10 @@ int main(){
     DList.printList();
     DList.delNode(1);
     DList.printList();
+    
+    List listArr[10];
+    for(int i=0; i<10; i++)
+        listArr[i].insNode(50+i);
+    listArr[4].printList();
+    
 }
