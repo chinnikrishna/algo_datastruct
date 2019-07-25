@@ -1,60 +1,68 @@
 class BTNode:
 	def __init__(self, data):
-		self.key = data
+		self.data = data
 		self.left = None
 		self.right = None
 		self.parent = None
 
-class BinarySearchTree:
+
+class BST:
+
 	def __init__(self):
 		self.root = None
-	
-	def insNode(self, data):
-		# Create a new node
+		self.size = 0
+
+	def addNode(self, data):
+		# Add a new BT Node
 		n = BTNode(data)
-		# If tree is empty create the first one
-		if self.root == None:
+		# Now figure out where to add this
+		# If the root is none, make it the first node
+		if self.root is None:
 			self.root = n
 		else:
-			# Get the root
+			# Get current root
 			curr = self.root
-			# Iterate until you reach the right leaf node
+			# Keep going until you find leaf node
 			while curr is not None:
-				# Keep track present parent
 				parent = curr
-				# Go left if less
-				if data < curr.key:
+				if n.data < curr.data:
 					curr = curr.left
-				# Go right if greater
 				else:
 					curr = curr.right
-			# Now insert
-			if data < parent.key:
+			# Insert data
+			if n.data < parent.data:
 				parent.left = n
 			else:
 				parent.right = n
 			n.parent = parent
 	
+	def inOrder(self, root):
+		if root is not None:
+			self.inOrder(root.left)
+			print(root.data)
+			self.inOrder(root.right)
 	
 	def preOrder(self, root):
-		if root:
-			print(root.key)
+		if root is not None:
+			print(root.data)
 			self.preOrder(root.left)
 			self.preOrder(root.right)
+	
+	def postOrder(self, root):
+		if root is not None:
+			self.postOrder(root.left)
+			self.postOrder(root.right)
+			print(root.data)
+
+
 			
 
-	
+bst = BST()
+t = [7,8,2,9,4,1]
 
-bst = BinarySearchTree()
-bst.insNode(10)
-bst.insNode(67)
-bst.insNode(42)
-bst.insNode(23)
-bst.insNode(89)
-bst.insNode(34)
-bst.preOrder(bst.root)		
-	
+for i in t:
+	bst.addNode(i)
 
-
-print("LOL")
-	
+bst.preOrder(bst.root)
+print("================")
+bst.inOrder(bst.root)
